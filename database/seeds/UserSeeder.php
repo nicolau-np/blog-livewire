@@ -16,10 +16,14 @@ class UserSeeder extends Seeder
                     'name'=>"Mark Marques",
                     'email'=>"nic340k@gmail.com",
                     'password'=>Hash::make('olaola'),
+                    'acesso'=>"admin",
+                    'estado'=>"on",
                 ], [
                     'name'=>"Post Malonne",
                     'email'=>"post@gmail.com",
                     'password'=>Hash::make('babaca'),
+                    'acesso'=>"user",
+                    'estado'=>"on",
                 ],
 
             )
