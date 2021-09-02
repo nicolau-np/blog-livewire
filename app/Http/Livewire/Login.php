@@ -22,10 +22,10 @@ class Login extends Component
 
 
 
-        if (Auth::attempt(array('email'=>$this->email, 'password'=>$this->password))) {
-            dd('certo');
+        if (Auth::attempt(['email'=>$this->email, 'password'=>$this->password])) {
+            return redirect()->route('home');
         } else {
-            dd('erro');
+            return null;
         }
 
     }
