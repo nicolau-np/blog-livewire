@@ -8,10 +8,13 @@ use Livewire\Component;
 class Login extends Component
 {
 
-    public $email;
-    public $password;
+    public $form = [
+        'email',
+        'password'
+    ];
 
-    public function logar(){
+    public function logar()
+    {
         $this->validate(
             [
                 'email' => ['required', 'email', 'max:255'],
@@ -20,8 +23,8 @@ class Login extends Component
         );
 
         $credencials = [
-            'email'=>$this->email,
-            'password' =>$this->password,
+            'email' => $this->email,
+            'password' => $this->password,
         ];
 
         if (Auth::attempt($credencials)) {
@@ -29,7 +32,6 @@ class Login extends Component
         } else {
             return back()->with(['error' => "E-mail ou Palavra-Passe Incorrectos"]);
         }
-
     }
 
     public function render()
