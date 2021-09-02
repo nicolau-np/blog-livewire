@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Login extends Component
@@ -18,12 +19,13 @@ class Login extends Component
             ]
         );
 
-       /* $credencials = $request->only('email', 'password');
-        if (Auth::attempt($credencials)) {
-            return redirect()->route('admin');
-        } else {
-            return back()->with(['error' => "E-mail ou Palavra-Passe Incorrectos"]);
-        }*/
+        $credencials = [
+            'email'=>$this->email,
+            'password' =>$this->password,
+        ];
+
+        Auth::attempt($credencials);
+        return redirect()->route('home');
     }
 
     public function render()
