@@ -24,10 +24,10 @@ class Login extends Component
             'password' =>$this->password,
         ];
 
-        if(Auth::attempt($credencials)){
+        if (Auth::attempt($credencials)) {
             return redirect()->route('home');
-        }else{
-            return null;
+        } else {
+            return back()->with(['error' => "E-mail ou Palavra-Passe Incorrectos"]);
         }
 
     }
