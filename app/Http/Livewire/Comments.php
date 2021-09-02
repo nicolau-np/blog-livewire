@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Comment;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -19,6 +20,10 @@ class Comments extends Component
 
     public function store()
     {
+        if(!Auth::check()){
+            return back()->with(['message'=>"Deve fazer login"]);
+        }
+
         $this->validate([
             'comment' => ['required', 'string', 'min:10'],
         ]);
@@ -32,7 +37,7 @@ class Comments extends Component
         }
 
         $data = [
-            'id_user' => 1,
+            'id_user' => Auth::user()->id,
             'body' => $this->comment,
             'image'=>$path,
         ];
