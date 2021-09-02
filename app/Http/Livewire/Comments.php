@@ -21,7 +21,7 @@ class Comments extends Component
     public function store()
     {
         if(!Auth::check()){
-            return back()->with(['message'=>"Deve fazer login"]);
+            return back()->with(['message'=>"Deve fazer login para publicar"]);
         }
 
         $this->validate([
