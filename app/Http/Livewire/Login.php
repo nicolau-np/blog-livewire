@@ -19,13 +19,10 @@ class Login extends Component
             ]
         );
 
-
-
-
         if (Auth::attempt(['email'=>$this->email, 'password'=>$this->password])) {
             return redirect()->route('home');
         } else {
-            return null;
+            return back()->with(['message'=>"Email ou palavra passe incorrectas"]);
         }
 
     }

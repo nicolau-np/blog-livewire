@@ -49,6 +49,7 @@
                 </div>
 
               </div>
+              @if (Auth::user()->acesso=="admin")
               <div class="card-footer">
                 <small class="text-muted">
                     <i class="fas fa-trash text-danger" wire:click="delete({{$comment->id}})"></i>
@@ -56,6 +57,7 @@
                     <i class="fas fa-edit text-primary"></i>
                 </small>
               </div>
+            @endif
               <br/>
         </div>
         <br/>

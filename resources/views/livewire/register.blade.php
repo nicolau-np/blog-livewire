@@ -29,7 +29,7 @@
             </div>
             <br/><br/>
             <div class="col-md-12">
-                <input type="confirmpassword" name="confirmpassword" wire:model="confirmpassword" class="form-control" placeholder="Confirm Password"/>
+                <input type="password" name="confirmpassword" wire:model="confirmpassword" class="form-control" placeholder="Confirm Password"/>
                 @error('confirmpassword')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
