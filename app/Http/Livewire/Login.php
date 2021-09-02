@@ -24,8 +24,12 @@ class Login extends Component
             'password' =>$this->password,
         ];
 
-        Auth::attempt($credencials);
-        return redirect()->route('home');
+        if(Auth::attempt($credencials)){
+            return redirect()->route('home');
+        }else{
+            return null;
+        }
+
     }
 
     public function render()
