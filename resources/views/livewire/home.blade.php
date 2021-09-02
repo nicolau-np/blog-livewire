@@ -1,3 +1,3 @@
 <div>
-    hello world
+    @livewire('comments')
 </div>
