@@ -10,6 +10,17 @@
     margin-top: 4%;
 }
 
+.findPubs{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 1%;
+}
+
+.profile{
+    float: center;
+    text-align: center;
+}
+
 
 @media(max-width:700px){
     .painel{
@@ -22,5 +33,11 @@
         margin-left: 1%;
         margin-right: 1%;
         margin-top: 2%;
+    }
+
+    .findPubs{
+        margin-left: 1%;
+        margin-right: 1%;
+        margin-top: 1%;
     }
 }

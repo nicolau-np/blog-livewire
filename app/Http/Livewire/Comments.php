@@ -17,6 +17,9 @@ class Comments extends Component
     public $comment;
     public $image;
 
+    public function loadPubs($id_user){
+        $this->emit('loadDiv', $id_user);
+    }
 
     public function store()
     {

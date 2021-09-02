@@ -43,21 +43,22 @@
                 @endif
 
                 <div class="card-body">
-                  <h5 class="card-title">{{$comment->user->name}}</h5>
+                  <h5 class="card-title"><a wire:click="loadPubs({{$comment->user->id}})">{{$comment->user->name}}</a></h5>
                   <p class="card-text">{{$comment->body}}</p>
                   <p class="card-text"><small class="text-muted">{{$comment->created_at->diffForHumans()}}</small></p>
                 </div>
 
               </div>
-              @if (Auth::user()->acesso=="admin")
+
               <div class="card-footer">
                 <small class="text-muted">
+                    @if (Auth::user()->acesso=="admin")
                     <i class="fas fa-trash text-danger" wire:click="delete({{$comment->id}})"></i>
                     &nbsp;&nbsp;
-                    <i class="fas fa-edit text-primary"></i>
+                    @endif
                 </small>
               </div>
-            @endif
+
               <br/>
         </div>
         <br/>
@@ -67,4 +68,3 @@
     </div>
 
 </div>
-
