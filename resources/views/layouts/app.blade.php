@@ -34,9 +34,9 @@
                     <a class="nav-link" href="/login">Login</a>
                     <a class="nav-link" href="/register">Register</a>
                   @else
-                  <logout />
-                  @endif
 
+                  @endif
+                  <livewire:logout />
                 </div>
               </div>
             </div>
