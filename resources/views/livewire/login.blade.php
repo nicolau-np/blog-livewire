@@ -1,5 +1,5 @@
 <div class="form-register">
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="logar">
         <div class="row">
             <div class="col-md-12">
                 @if (session()->has('message'))
