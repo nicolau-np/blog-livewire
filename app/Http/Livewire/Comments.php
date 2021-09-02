@@ -20,8 +20,8 @@ class Comments extends Component
 
     public function store()
     {
-        if(!Auth::check()){
-            return back()->with(['message'=>"Deve fazer login para publicar"]);
+        if (!Auth::check()) {
+            return back()->with(['message' => "Deve fazer login para publicar"]);
         }
 
         $this->validate([
@@ -29,9 +29,9 @@ class Comments extends Component
         ]);
 
         $path = null;
-        if($this->image){
+        if ($this->image) {
             $this->validate([
-                'image'=>['required', 'image', 'mimes:jpg,png', 'max:5000']
+                'image' => ['required', 'image', 'mimes:jpg,png', 'max:5000']
             ]);
             $path = $this->image->store('comments');
         }
@@ -39,7 +39,7 @@ class Comments extends Component
         $data = [
             'id_user' => Auth::user()->id,
             'body' => $this->comment,
-            'image'=>$path,
+            'image' => $path,
         ];
         Comment::create($data);
 
@@ -49,10 +49,11 @@ class Comments extends Component
     }
 
 
-    public function delete($commentID){
+    public function delete($commentID)
+    {
         $comment = Comment::find($commentID);
         if ($comment->image != "" && file_exists($comment->image)) {
-        unlink($comment->image);
+            unlink($comment->image);
         }
         $comment->delete();
 
@@ -63,7 +64,7 @@ class Comments extends Component
     {
         $comments = Comment::orderBy('id', 'desc')->paginate(2);
         $data = [
-            'comments'=>$comments
+            'comments' => $comments
         ];
         return view('livewire.comments', $data);
     }
