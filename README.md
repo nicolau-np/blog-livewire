@@ -10,3 +10,5 @@ Uma nova forma de trabalhar com single Aplication sem usar uma framework javascr
 - composer install
 
 - npm install --save turbolinks
+
+- npm run dev

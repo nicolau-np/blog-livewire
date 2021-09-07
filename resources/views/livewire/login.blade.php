@@ -6,6 +6,9 @@
                 <div class="alert alert-success">{{session('message')}}</div>
                 @endif
             </div>
+            <div wire:loading wire:target="logar">
+                <img src="{{asset('assets/img/loading.gif')}}" style="height:53px; width:53px;" />
+            </div>
 
             <div class="col-md-12">
                 <input type="email" name="email" wire:model="email" class="form-control" placeholder="Email"/>
